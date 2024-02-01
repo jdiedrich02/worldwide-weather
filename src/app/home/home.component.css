@@ -18,14 +18,16 @@ h1 {
 }
 
 .sideContainer {
-    height: 80vh;
+    height: 75vh;
+    width: 80vw;
     border: 1px solid black;
     border-radius: 20px;
     background-color: lightgray;
 }
 
 .middleContainer {
-    height: 200px;
+    height: 25vh;
+    width: 30vw;
     border: 1px solid black;
     border-radius: 20px;
     background-color: lightgray;

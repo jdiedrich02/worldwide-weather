@@ -7,14 +7,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  currentCity: string = "Ottawa";
+  currentCity: string = "Ottawa, Canada";
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     const cityObj = this.route.snapshot.queryParams;
     if (Object.keys(cityObj).length != 0) {
-      this.currentCity = cityObj['city'];
+      this.currentCity = cityObj['city'] + ", " + cityObj['country'];
     }
   }
 

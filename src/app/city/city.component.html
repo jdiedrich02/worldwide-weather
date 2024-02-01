@@ -5,8 +5,13 @@
         <mat-label>Enter a City</mat-label>
         <input matInput type="text" [(ngModel)]="cityInput">
     </mat-form-field>
+    <div id="buttons">
+        <button mat-raised-button color="primary" [disabled]="!cityInput" (click)="searchSpecificCity(cityInput)">Search</button>
+        <br>
+        <button mat-raised-button color="primary" (click)="loadAllData()">Clear</button>
+    </div>
     <mat-list>
-        <mat-list-item *ngFor="let cities of citiesList | slice:(pageNum * 10):(pageNum * 10 + itemsPerPage) | cityFilter: cityInput"><a routerLink="/" [queryParams]="{ city: cities.name}">{{cities.name}}, {{cities.country}}</a></mat-list-item>
+        <mat-list-item *ngFor="let cities of citiesList | slice:(pageNum * itemsPerPage):(pageNum * itemsPerPage + itemsPerPage)"><a routerLink="/" [queryParams]="{ city: cities.name, country: cities.country }">{{cities.name}}, {{cities.country}}</a></mat-list-item>
     </mat-list>
-    <mat-paginator [length]="cityListLen" [pageSizeOptions]="[10, 50]" aria-label="Select page" (page)="handlePageChange($event)"></mat-paginator>
+    <mat-paginator [length]="cityListLen" [pageSizeOptions]="[10, 50, 100]" aria-label="Select page" (page)="handlePageChange($event)"></mat-paginator>
 </div>

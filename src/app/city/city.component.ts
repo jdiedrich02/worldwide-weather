@@ -16,7 +16,20 @@ export class CityComponent {
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
+    this.loadAllData();
+  }
+
+  searchSpecificCity(name: string) {
+    this.dataService.getSpecificCity(name).subscribe(data => {
+      console.log(data)
+      this.cityListLen = data.length;
+      this.citiesList = data;
+    });
+  }
+
+  loadAllData() {
     this.dataService.getCityData().subscribe(data => {
+      console.log(data)
       this.cityListLen = data.length;
       this.citiesList = data;
     });
