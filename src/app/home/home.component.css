@@ -1,0 +1,32 @@
+h1 {
+    text-align: center;
+}
+
+#container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    border-radius: 20px;
+}
+
+.sideContainer {
+    height: 80vh;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: lightgray;
+}
+
+.middleContainer {
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background-color: lightgray;
+}
