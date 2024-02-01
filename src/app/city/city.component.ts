@@ -21,7 +21,6 @@ export class CityComponent {
 
   searchSpecificCity(name: string) {
     this.dataService.getSpecificCity(name).subscribe(data => {
-      console.log(data)
       this.cityListLen = data.length;
       this.citiesList = data;
     });
@@ -29,7 +28,6 @@ export class CityComponent {
 
   loadAllData() {
     this.dataService.getCityData().subscribe(data => {
-      console.log(data)
       this.cityListLen = data.length;
       this.citiesList = data;
     });
@@ -38,5 +36,10 @@ export class CityComponent {
   handlePageChange($event: any) {
     this.itemsPerPage = $event.pageSize;
     this.pageNum = $event.pageIndex;
+  }
+
+  clearInput() {
+    this.cityInput = '';
+    this.loadAllData();
   }
 }

@@ -8,7 +8,7 @@
     <div id="buttons">
         <button mat-raised-button color="primary" [disabled]="!cityInput" (click)="searchSpecificCity(cityInput)">Search</button>
         <br>
-        <button mat-raised-button color="primary" (click)="loadAllData()">Clear</button>
+        <button mat-raised-button color="primary" (click)="clearInput()">Clear</button>
     </div>
     <mat-list>
         <mat-list-item *ngFor="let cities of citiesList | slice:(pageNum * itemsPerPage):(pageNum * itemsPerPage + itemsPerPage)"><a routerLink="/" [queryParams]="{ city: cities.name, country: cities.country }">{{cities.name}}, {{cities.country}}</a></mat-list-item>
