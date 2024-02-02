@@ -3,6 +3,7 @@
     <div fxLayout="row" fxLayoutAlign="space-around center" id="grid">
         <div fxFlex="20%" class="sideContainer">
             City Information
+            Current Time: {{weatherInfo.location['localtime']}}
         </div>
         <div fxFlex="60%" fxLayout="column" fxLayoutAlign="space-around center">
             <div fxFlex="30%" class="middleContainer">
@@ -16,7 +17,7 @@
             </div>
         </div>
         <div fxFlex="20%" class="sideContainer">
-            7 Day Forcast
+            3 Day Forcast
         </div>
     </div>
 </div>
