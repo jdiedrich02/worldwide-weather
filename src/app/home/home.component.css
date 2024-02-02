@@ -1,4 +1,4 @@
-h1 {
+h1, p, h3 {
     text-align: center;
 }
 
@@ -26,9 +26,17 @@ h1 {
 }
 
 .middleContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 25vh;
     width: 30vw;
     border: 1px solid black;
     border-radius: 20px;
     background-color: lightgray;
+}
+
+.data {
+    padding: 15px;
+    width: 100%;
 }
