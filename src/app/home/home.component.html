@@ -13,10 +13,10 @@
                 <div class="midData">
                     <h2>{{weatherInfo.location['name']}}</h2>
                     <h1>{{weatherInfo.current['temp_c']}}&deg;</h1>
-                    <p>Feels like {{weatherInfo.current['feelslike_c']}}&deg;</p>
+                    <img [src]="weatherInfo.current['condition']['icon']">
+                    <p>Feels like <strong>{{weatherInfo.current['feelslike_c']}}&deg;</strong></p>
                     <p>{{weatherInfo.current['condition'].text}}</p>
                     <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
-                    <img [src]="weatherInfo.current['condition']['icon']">
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
@@ -33,13 +33,15 @@
         <div fxFlex="20%" class="sideContainer">
             <div class="sideData">
                 <h3>3 Day Forcast</h3>
-                <mat-card *ngFor="let day of weatherInfo.forecast['forecastday']">
+                <mat-card *ngFor="let day of weatherInfo.forecast['forecastday']" class="dayCard">
                     <mat-card-header>
                         <mat-card-title>{{day['date']}}</mat-card-title>
                     </mat-card-header>
                     <img mat-card-image [src]="day['day']['condition']['icon']">
                     <mat-card-content>
-
+                        <p>{{day['day']['condition']['text']}}</p>
+                        <p><strong>{{day['day']['maxtemp_c']}}&deg;</strong></p>
+                        <p>{{day['day']['mintemp_c']}}&deg;</p>
                     </mat-card-content>
                 </mat-card>
             </div>
