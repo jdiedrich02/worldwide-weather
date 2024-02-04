@@ -2,34 +2,37 @@
 <div id="container">
     <div fxLayout="row" fxLayoutAlign="space-around center" id="grid">
         <div fxFlex="20%" class="sideContainer">
-            <div class="data">
+            <div class="sideData">
                 <h3>City Information</h3>
                 <p>Current Time: {{weatherInfo.location['localtime']}}</p>
+                <p>Longitude: {{weatherInfo.location['lon']}} Latitude: {{weatherInfo.location['lat']}}</p>
             </div>
         </div>
         <div fxFlex="60%" fxLayout="column" fxLayoutAlign="space-around center">
             <div fxFlex="30%" class="middleContainer">
-                <div class="data">
+                <div class="midData">
                     <h2>{{weatherInfo.location['name']}}</h2>
                     <h1>{{weatherInfo.current['temp_c']}}&deg;</h1>
                     <p>Feels like {{weatherInfo.current['feelslike_c']}}&deg;</p>
+                    <p>{{weatherInfo.current['condition'].text}}</p>
                     <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
-                <div class="data">
+                <div class="midData">
                     <h3>Hourly Weather</h3>
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
-                <div class="data">
+                <div class="midData">
                     <h3>Air Conditions</h3>
                 </div>
             </div>
         </div>
         <div fxFlex="20%" class="sideContainer">
-            <div class="data">
+            <div class="sideData">
                 <h3>3 Day Forcast</h3>
+                
             </div>
         </div>
     </div>
