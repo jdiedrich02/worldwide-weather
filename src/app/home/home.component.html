@@ -16,6 +16,7 @@
                     <p>Feels like {{weatherInfo.current['feelslike_c']}}&deg;</p>
                     <p>{{weatherInfo.current['condition'].text}}</p>
                     <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
+                    <img [src]="weatherInfo.current['condition']['icon']">
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
@@ -32,7 +33,15 @@
         <div fxFlex="20%" class="sideContainer">
             <div class="sideData">
                 <h3>3 Day Forcast</h3>
-                
+                <mat-card *ngFor="let day of weatherInfo.forecast['forecastday']">
+                    <mat-card-header>
+                        <mat-card-title>{{day['date']}}</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image [src]="day['day']['condition']['icon']">
+                    <mat-card-content>
+
+                    </mat-card-content>
+                </mat-card>
             </div>
         </div>
     </div>
