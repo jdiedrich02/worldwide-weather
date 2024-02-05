@@ -1,22 +1,20 @@
-<h1>{{currentCity}}</h1>
 <div id="container">
     <div fxLayout="row" fxLayoutAlign="space-around center" id="grid">
-        <div fxFlex="20%" class="sideContainer">
-            <div class="sideData">
-                <h3>City Information</h3>
-                <p>Current Time: {{weatherInfo.location['localtime']}}</p>
-                <p>Longitude: {{weatherInfo.location['lon']}} Latitude: {{weatherInfo.location['lat']}}</p>
-            </div>
-        </div>
         <div fxFlex="60%" fxLayout="column" fxLayoutAlign="space-around center">
             <div fxFlex="30%" class="middleContainer">
                 <div class="midData">
-                    <h2>{{weatherInfo.location['name']}}</h2>
-                    <h1>{{weatherInfo.current['temp_c']}}&deg;</h1>
-                    <img [src]="weatherInfo.current['condition']['icon']">
-                    <p>Feels like <strong>{{weatherInfo.current['feelslike_c']}}&deg;</strong></p>
-                    <p>{{weatherInfo.current['condition'].text}}</p>
-                    <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
+                    <div class="cardContainer">
+                        <div class="subContainer">
+                            <h2>{{weatherInfo.location['name']}}, {{weatherInfo.location['country']}}</h2>
+                            <h1>{{weatherInfo.current['temp_c']}}&deg;</h1>
+                            <p>Feels like <strong>{{weatherInfo.current['feelslike_c']}}&deg;</strong></p>
+                            <p>{{weatherInfo.current['condition'].text}}</p>
+                            <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
+                        </div>
+                        <div class="subContainer">
+                            <img [src]="weatherInfo.current['condition']['icon']" id="bigImg">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
@@ -34,15 +32,20 @@
             <div class="sideData">
                 <h3>3 Day Forcast</h3>
                 <mat-card *ngFor="let day of weatherInfo.forecast['forecastday']" class="dayCard">
-                    <mat-card-header>
+                    <mat-card-header class="cardHeader">
                         <mat-card-title>{{day['date']}}</mat-card-title>
                     </mat-card-header>
-                    <img mat-card-image [src]="day['day']['condition']['icon']">
-                    <mat-card-content>
-                        <p>{{day['day']['condition']['text']}}</p>
-                        <p><strong>{{day['day']['maxtemp_c']}}&deg;</strong></p>
-                        <p>{{day['day']['mintemp_c']}}&deg;</p>
-                    </mat-card-content>
+                    <div class="cardContainer">
+                        <div class="subContainer">
+                            <img mat-card-image [src]="day['day']['condition']['icon']" id="smallImg">
+                        </div>
+                        <div class="subContainer">
+                            <mat-card-content>
+                                <p><strong>{{day['day']['condition']['text']}}</strong></p>
+                                <p><strong>{{day['day']['maxtemp_c']}}&deg;</strong> / {{day['day']['mintemp_c']}}&deg;</p>
+                            </mat-card-content>
+                        </div>
+                    </div>
                 </mat-card>
             </div>
         </div>
