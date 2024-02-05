@@ -1,4 +1,4 @@
-# Weather
+# Worldwide Weather
 This is a simple weather app that I created using Angular! It allows users to go in and look at current weather for major cities around the world! This is mostly a side project for my portfolio!
 It has 2 main pages for users to search for a city and the one page to display the weather for the selected city!
 
