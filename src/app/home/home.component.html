@@ -8,8 +8,9 @@
                             <h2>{{weatherInfo.location['name']}}, {{weatherInfo.location['country']}}</h2>
                             <h1>{{weatherInfo.current['temp_c']}}&deg;</h1>
                             <p>Feels like <strong>{{weatherInfo.current['feelslike_c']}}&deg;</strong></p>
-                            <p>{{weatherInfo.current['condition'].text}}</p>
-                            <p>Wind Gust {{weatherInfo.current['gust_kph']}} km/h</p>
+                            <p><strong>{{weatherInfo.current['condition'].text}}</strong></p>
+                            <p>Sunrise: <strong>{{weatherInfo.forecast['forecastday'][0]['astro']['sunrise']}}</strong></p>
+                            <p>Sunset: <strong>{{weatherInfo.forecast['forecastday'][0]['astro']['sunset']}}</strong></p>
                         </div>
                         <div class="subContainer">
                             <img [src]="weatherInfo.current['condition']['icon']" id="bigImg">
@@ -20,6 +21,14 @@
             <div fxFlex="30%" class="middleContainer">
                 <div class="midData">
                     <h3>Hourly Weather</h3>
+                    <br>
+                    <div id="hourlyWeatherContainer">
+                        <div *ngFor="let hour of hourly; index as i">
+                            <p>{{hour['time'].split(" ")[1]}}</p>
+                            <img [src]="hour['condition']['icon']" id="smallImg">
+                            <p>{{hour['temp_c']}}&deg;</p>
+                        </div> 
+                    </div>
                 </div>
             </div>
             <div fxFlex="30%" class="middleContainer">
@@ -29,17 +38,15 @@
             </div>
         </div>
         <div fxFlex="20%" class="sideContainer">
+            <h3>3 Day Forecast</h3>
             <div class="sideData">
-                <h3>3 Day Forcast</h3>
                 <mat-card *ngFor="let day of weatherInfo.forecast['forecastday']" class="dayCard">
                     <mat-card-header class="cardHeader">
                         <mat-card-title>{{day['date']}}</mat-card-title>
                     </mat-card-header>
                     <div class="cardContainer">
-                        <div class="subContainer">
+                        <div class="subContainer-left">
                             <img mat-card-image [src]="day['day']['condition']['icon']" id="smallImg">
-                        </div>
-                        <div class="subContainer">
                             <mat-card-content>
                                 <p><strong>{{day['day']['condition']['text']}}</strong></p>
                                 <p><strong>{{day['day']['maxtemp_c']}}&deg;</strong> / {{day['day']['mintemp_c']}}&deg;</p>

@@ -13,6 +13,8 @@ export class HomeComponent {
   lon: any = '';
   lat: any = '';
 
+  hourlyTimes: any[] = [6, 9, 12, 15, 18];
+  hourly: any = [];
   weatherInfo: any = {};
 
   constructor(private route: ActivatedRoute) {}
@@ -33,6 +35,10 @@ export class HomeComponent {
     .then(data => {
       console.log(data)
       this.weatherInfo = data;
+
+      for (let hourTimes of this.hourlyTimes) {
+        this.hourly.push(this.weatherInfo.forecast['forecastday'][0]['hour'][hourTimes]);
+      }
     });
   }
 }
