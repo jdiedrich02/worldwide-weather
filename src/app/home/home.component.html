@@ -34,6 +34,31 @@
             <div fxFlex="30%" class="middleContainer">
                 <div class="midData">
                     <h3>Air Conditions</h3>
+                    <br>
+                    <div id="corners">
+                        <div class="data">
+                            <img src="../../assets/UV.png" id="smallerImg">
+                            <h3>UV</h3>
+                            <p>{{weatherInfo.current['uv']}}</p>
+                        </div>
+                        <div class="data">
+                            <img src="../../assets/wind.png" id="smallerImg">
+                            <h3>Wind</h3>
+                            <p>{{weatherInfo.current['gust_kph']}} km/h</p>
+                            <p>{{weatherInfo.current['gust_mph']}} m/h</p>
+                            <p>Direction: {{weatherInfo.current['wind_dir']}}</p>
+                        </div>
+                        <div class="data">
+                            <img src="../../assets/chanceRain.png" id="smallerImg">
+                            <h3>Chance of Rain</h3>
+                            <p>{{weatherInfo.forecast['forecastday'][0]['day']['daily_chance_of_rain']}}%</p>
+                        </div>
+                        <div class="data">
+                            <img src="../../assets/pressure.png" id="smallerImg">
+                            <h3>Pressure</h3>
+                            <p>{{weatherInfo.current['pressure_in']}} in</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
