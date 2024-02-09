@@ -4,26 +4,35 @@ It has 2 main pages for users to search for a city and the one page to display t
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
 
+## About the Project
+
+There are 2 pages to the project. One main page to display the weather data: 
+![image](https://github.com/jdiedrich02/worldwide-weather/assets/77290127/f6a202fb-4335-43bf-b868-f848b9fd2213)
+
+And another to search for a specific city:
+![image](https://github.com/jdiedrich02/worldwide-weather/assets/77290127/7d74c78b-9f9a-44ad-abcd-f90c8587997b)
+
+The weather data that the app uses is from the Weather API: https://www.weatherapi.com/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### API Setup Locally
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+If you want to clone the code locally and use your own API key for the data, you will have to create environment files.
+
+Run the `ng generate environments` command in the terminal in the angular project. The environment files will be auto generated for you.
+
+Ensure that the environment files include the proper environment setup:
+
+```
+export const environment = {
+  apiKeyWeatherAPI: '<Your API Key Here>'
+};
+```
+Note this will have to be from the same weather API for the data to be rendered the same.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
