@@ -7,13 +7,18 @@ import { DataService } from '../data.service';
   styleUrls: ['./city.component.css']
 })
 export class CityComponent {
-  cityInput: any = '';
-  pageNum: any = 0;
-  itemsPerPage :any = 10;
-  cityListLen :any = 0;
-  citiesList :any[] = [];
+  protected cityInput: any;
+  protected pageNum: any;
+  protected itemsPerPage :any;
+  protected cityListLen :any;
+  protected citiesList :any[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private dataService: DataService) {
+    this.cityInput = '';
+    this.pageNum = 0;
+    this.itemsPerPage = 10;
+    this.cityListLen = 0;
+  }
 
   ngOnInit() {
     this.loadAllData();

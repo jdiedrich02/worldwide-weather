@@ -8,16 +8,19 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  apiKey: string = environment.apiKeyWeatherAPI;
-  currentCity: string = "Ottawa, Canada";
-  lon: any = '';
-  lat: any = '';
+  protected apiKey: string;
+  protected currentCity: string;
 
-  hourlyTimes: any[] = [6, 9, 12, 15, 18];
-  hourly: any = [];
-  weatherInfo: any = {};
+  protected hourlyTimes: any[] = [6, 9, 12, 15, 18];
+  protected hourly: any[];
+  protected weatherInfo: any;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute) {
+    this.apiKey = environment.apiKeyWeatherAPI;
+    this.currentCity = "Ottawa, Canada";
+    this.hourly = [];
+    this.weatherInfo = {};
+  }
 
   ngOnInit() {
     const cityObj = this.route.snapshot.queryParams;
