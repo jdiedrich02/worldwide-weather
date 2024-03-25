@@ -10,7 +10,7 @@ There are 2 pages to the project. One main page to display the weather data:
 ![image](https://github.com/jdiedrich02/worldwide-weather/assets/77290127/f6a202fb-4335-43bf-b868-f848b9fd2213)
 
 And another to search for a specific city:
-![image](https://github.com/jdiedrich02/worldwide-weather/assets/77290127/7d74c78b-9f9a-44ad-abcd-f90c8587997b)
+![image](https://github.com/jdiedrich02/worldwide-weather/assets/77290127/bfe8910f-8709-442e-91fa-7b127ae79939)
 
 The weather data that the app uses is from the Weather API: https://www.weatherapi.com/
 
