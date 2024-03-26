@@ -33,6 +33,9 @@ export const environment = {
 ```
 Note this will have to be from the same weather API for the data to be rendered the same.
 
+NOTE:
+Currently, this project does not have a server component. For API calls, it should have a server component to ensure security, but this is mostly a "Front-End" project to learn new UI skills. I would like to add a server in at some point and maybe even release this :)
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
